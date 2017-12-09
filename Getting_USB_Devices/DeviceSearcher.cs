@@ -13,8 +13,8 @@ namespace Getting_USB_Devices
         public List<USBDevice> GetDevices()
         {
             List<USBDevice> devices = new List<USBDevice>();
-            List<DriveInfo> drives = DriveInfo.GetDrives().Where(d => d.IsReady && d.DriveType == DriveType.Removable).ToList();
-            List<MediaDevice> mtpDevices = MediaDevice.GetDevices().ToList();
+            var drives = DriveInfo.GetDrives().Where(d => d.IsReady && d.DriveType == DriveType.Removable).ToList();
+            var mtpDevices = MediaDevice.GetDevices().ToList();
             foreach (MediaDevice device in mtpDevices)
             {
                 device.Connect();
